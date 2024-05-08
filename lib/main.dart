@@ -14,6 +14,9 @@ class ExpensesApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final titleController = TextEditingController();
+  final valueController = TextEditingController();
+
   final _transactions = [
     Transaction(
         id: 't1',
@@ -37,13 +40,14 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         // mainAxisAlignmente e crossAxisAlignment, são usados para alinhar os widgets
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          const Card(
-            color: Colors.blue,
-            elevation: 5,
-            child: Text('Gráfico'),
+          Container(
+            child: const Card(
+              color: Colors.blue,
+              elevation: 5,
+              child: Text('Gráfico'),
+            ),
           ),
           Column(
             children: _transactions.map((tr) {
@@ -94,6 +98,44 @@ class MyHomePage extends StatelessWidget {
               );
             }).toList(),
           ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: titleController,
+                    decoration: const InputDecoration(
+                      labelText: 'Título',
+                    ),
+                  ),
+                  TextField(
+                    controller: valueController,
+                    decoration: const InputDecoration(
+                      labelText: 'Digite o valor (R\$)',
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          print(titleController);
+                          print(valueController.text);
+                        },
+                        style: const ButtonStyle(
+                          foregroundColor:
+                              MaterialStatePropertyAll<Color>(Colors.purple),
+                        ),
+                        child: const Text('Nova Transação'),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
