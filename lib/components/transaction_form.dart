@@ -51,9 +51,10 @@ class _TransactionFormState extends State<TransactionForm> {
               children: [
                 TextButton(
                   onPressed: _submitForm,
-                  style: const ButtonStyle(
-                    foregroundColor:
-                        MaterialStatePropertyAll<Color>(Colors.purple),
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStatePropertyAll<Color>(
+                      Theme.of(context).colorScheme.primary,
+                    ),
                   ),
                   child: const Text('Nova Transação'),
                 ),

@@ -10,8 +10,30 @@ main() => runApp(ExpensesApp());
 class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ThemeData tema = ThemeData();
     return MaterialApp(
       home: MyHomePage(),
+      theme: tema.copyWith(
+        colorScheme: tema.colorScheme.copyWith(
+          primary: Colors.red[300],
+          secondary: Colors.black,
+        ),
+        textTheme: tema.textTheme.copyWith(
+          titleLarge: const TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+        ),
+        appBarTheme: const AppBarTheme(
+          titleTextStyle: TextStyle(
+            fontFamily: 'OpenSans',
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
     );
   }
 }
@@ -65,8 +87,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Despesas Pessoais'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: Text(
+          'Despesas Pessoais',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.secondary,
+          ),
+        ),
         actions: <Widget>[
           IconButton(
             onPressed: () => _opentransactionFormModal(context),
@@ -80,10 +107,15 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Container(
-              child: const Card(
-                color: Colors.blue,
+              child: Card(
+                color: Theme.of(context).colorScheme.primary,
                 elevation: 5,
-                child: Text('Gráfico'),
+                child: Text(
+                  'Gráfico',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
               ),
             ),
             TransactionList(_transactions),
@@ -91,7 +123,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: const Icon(Icons.add),
         onPressed: () => _opentransactionFormModal(context),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
