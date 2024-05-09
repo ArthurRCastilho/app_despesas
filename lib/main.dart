@@ -20,19 +20,21 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.blue,
         title: const Text('Despesas Pessoais'),
       ),
-      body: Column(
-        // mainAxisAlignmente e crossAxisAlignment, são usados para alinhar os widgets
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Container(
-            child: const Card(
-              color: Colors.blue,
-              elevation: 5,
-              child: Text('Gráfico'),
+      body: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignmente e crossAxisAlignment, são usados para alinhar os widgets
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              child: const Card(
+                color: Colors.blue,
+                elevation: 5,
+                child: Text('Gráfico'),
+              ),
             ),
-          ),
-          TransactionUser(),
-        ],
+            TransactionUser(),
+          ],
+        ),
       ),
     );
   }
