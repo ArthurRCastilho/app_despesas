@@ -15,8 +15,9 @@ class ExpensesApp extends StatelessWidget {
       home: MyHomePage(),
       theme: tema.copyWith(
         colorScheme: tema.colorScheme.copyWith(
-          primary: Colors.red[300],
+          primary: Colors.red[900],
           secondary: Colors.black,
+          tertiary: Colors.white,
         ),
         textTheme: tema.textTheme.copyWith(
           titleLarge: const TextStyle(
@@ -91,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(
           'Despesas Pessoais',
           style: TextStyle(
-            color: Theme.of(context).colorScheme.secondary,
+            color: Theme.of(context).colorScheme.tertiary,
           ),
         ),
         actions: <Widget>[
