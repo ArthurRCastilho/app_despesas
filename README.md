@@ -5,7 +5,7 @@ Além disso é mostrado um gráfico com o que foi gasto nos ultimos 7 dias
 
 ### Layout
 
-    :construction: Projeto em construção :construction:
+:construction: Projeto em construção :construction:
 
 ## Como rodar o projeto?
 
