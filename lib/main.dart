@@ -86,32 +86,44 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
-        title: Text(
-          'Despesas Pessoais',
-          style: TextStyle(
-            color: Theme.of(context).colorScheme.tertiary,
+    final appBar = AppBar(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      title: Text(
+        'Despesas Pessoais',
+        style: TextStyle(
+          color: Theme.of(context).colorScheme.tertiary,
+          fontSize: 20 * MediaQuery.textScalerOf(context).scale(1),
+        ),
+      ),
+      actions: <Widget>[
+        IconButton(
+          onPressed: () => _opentransactionFormModal(context),
+          icon: Icon(
+            Icons.add,
+            color: Theme.of(context).colorScheme.secondary,
           ),
         ),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () => _opentransactionFormModal(context),
-            icon: Icon(
-              Icons.add,
-              color: Theme.of(context).colorScheme.secondary,
-            ),
-          ),
-        ],
-      ),
+      ],
+    );
+    final availableHeight = MediaQuery.of(context).size.height -
+        appBar.preferredSize.height -
+        MediaQuery.of(context).padding.top;
+
+    return Scaffold(
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           // mainAxisAlignmente e crossAxisAlignment, são usados para alinhar os widgets
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Chart(_recentTransactions),
-            TransactionList(_transactions, _removeTransaction),
+            Container(
+              height: availableHeight * 0.22,
+              child: Chart(_recentTransactions),
+            ),
+            Container(
+              height: availableHeight * 0.78,
+              child: TransactionList(_transactions, _removeTransaction),
+            ),
           ],
         ),
       ),
