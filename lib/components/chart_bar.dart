@@ -18,8 +18,11 @@ class ChartBar extends StatelessWidget {
     return Column(
       children: <Widget>[
         // FittedBox => Responsável por diminuir o tamanho do texto quando ele é grande demais
-        FittedBox(
-          child: Text('${value.toStringAsFixed(2)}'),
+        Container(
+          height: 20,
+          child: FittedBox(
+            child: Text('${value.toStringAsFixed(2)}'),
+          ),
         ),
         SizedBox(height: 5),
         Container(
