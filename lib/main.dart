@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:app_despesas/components/transaction_form.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import './components/transaction_list.dart';
 import '/models/transaction.dart';
 import 'components/chart.dart';
@@ -11,7 +10,6 @@ main() => runApp(ExpensesApp());
 class ExpensesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     final ThemeData tema = ThemeData();
     return MaterialApp(
       home: MyHomePage(),
@@ -48,6 +46,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _transactions = [];
+  bool _showChart = false;
 
   List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {
@@ -88,6 +87,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+
     final appBar = AppBar(
       backgroundColor: Theme.of(context).colorScheme.primary,
       title: Text(
@@ -98,6 +100,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       actions: <Widget>[
+        if (isLandscape)
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _showChart = !_showChart;
+              });
+            },
+            icon: Icon(
+              _showChart ? Icons.list : Icons.show_chart,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
         IconButton(
           onPressed: () => _opentransactionFormModal(context),
           icon: Icon(
@@ -118,14 +132,34 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignmente e crossAxisAlignment, são usados para alinhar os widgets
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-              height: availableHeight * 0.22,
-              child: Chart(_recentTransactions),
-            ),
-            Container(
-              height: availableHeight * 0.78,
-              child: TransactionList(_transactions, _removeTransaction),
-            ),
+            // ==> Botão para alterar entre gráfico e transações
+            // ------------------------------------
+            // if (isLandscape) 
+            //   Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: [
+            //       Text('Exibir gráfico'),
+            //       Switch(
+            //         value: _showChart,
+            //         onChanged: (value) {
+            //           setState(() {
+            //             _showChart = value;
+            //           });
+            //         },
+            //       ),
+            //     ],
+            //   ),
+            // ------------------------------------
+            if (_showChart || !isLandscape)
+              Container(
+                height: availableHeight * (isLandscape ? 0.62 : 0.22),
+                child: Chart(_recentTransactions),
+              ),
+            if (!_showChart || !isLandscape)
+              Container(
+                height: availableHeight * 0.78,
+                child: TransactionList(_transactions, _removeTransaction),
+              ),
           ],
         ),
       ),
