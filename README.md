@@ -5,7 +5,7 @@ Além disso é mostrado um gráfico com o que foi gasto nos ultimos 7 dias
 
 ### Layout
 
-<img src="/assets/images/Layout_Initial_Page.png" alt="Página Inicial" width="270px"> <img src="/assets/images/New_Transaction_Page.png" alt="Nova transação" width="270px"> <img src="/assets/images/Layout_Transactions.png" alt="Página inicial com Transações" width="270px">
+<img src="./assets/images/Layout_Initial_Page.png" alt="Página Inicial" width="270px"> <img src="./assets/images/New_Transaction_Page.png" alt="Nova transação" width="270px"> <img src="./assets/images/Layout_Transactions.png" alt="Página inicial com Transações" width="270px">
 
 ## Como rodar o projeto?
 
