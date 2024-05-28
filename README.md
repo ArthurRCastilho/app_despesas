@@ -3,6 +3,11 @@
 Este programa é um programa 100% feito em flutter, que consiste em controlar suas despesas, nele você consegue adicionar despesas, com um titulo, valor, e a data que você fez a transação.
 Além disso é mostrado um gráfico com o que foi gasto nos ultimos 7 dias
 
+### O que eu aprendi neste projeto?
+
+Aprendi conceitos iniciais de Flutter, principais widgets, Row, Colunm, chart widget. Criação de formulario, como trabalhar com valores dentro do programa, trabalhando com data e datepicker.
+Responsividade, tamanho de tela ideal para o programa ser compatível com qualquer tamanho e tipo de celular. Como deixar o aplicativo em modo paisagem, e widgets adaptativos.
+
 ### Layout
 
 <img src="./assets/images/Layout_Initial_Page.png" alt="Página Inicial" width="270px"> <img src="./assets/images/New_Transaction_Page.png" alt="Nova transação" width="270px"> <img src="./assets/images/Layout_Transactions.png" alt="Página inicial com Transações" width="270px">
