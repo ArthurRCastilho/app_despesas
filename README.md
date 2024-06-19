@@ -35,12 +35,12 @@ E aperte para rodar o seu código, após alguns segundos o programa deve ser abe
 Este projeto foi totalmente feito a partir de um curso da udemy, na qual você pode [clicar aqui](https://www.udemy.com/course/curso-flutter/?couponCode=ST6MT42324) para acessar o curso<br>
 
 Neste projeto contém estruturas de fundamentos de flutter, sendo elas:
- - Criação de componentes com e sem estados;
- - Comunicação direta e indiretas;
- - Widgets simples de Botão e texto;
- - Como colorir determinados textos e botões;
- - Centralizar textos;
- - Dentre outros fundamentos básicos de flutter.
+- [x] Criação de componentes com e sem estados;
+- [x] Comunicação direta e indiretas;
+- [x] Widgets simples de Botão e texto;
+- [x] Como colorir determinados textos e botões;
+- [x] Centralizar textos;
+- [x] Dentre outros fundamentos básicos de flutter.
 
 ## Contribua para o respositorio
 
