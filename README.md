@@ -24,7 +24,8 @@ Neste projeto contém estruturas de fundamentos de flutter, sendo elas:
 - [x] Centralizar textos;
 - [x] Dentre outros fundamentos básicos de flutter.
 
-
+### Dependências
+- ``intl: ^0.19.0``
 
 ### Tecnologias utilizadas
 - ``VSCode``
